@@ -322,6 +322,7 @@ class UserManager:
         with open(self.__save_dir, 'w') as f:
             json.dump(save_uc, f)
         time_str = self.__pwd_time.strftime('%Y%m%d %H:%M:%S%z')
+        self.__login_status = False                             # TODO 登录状态可以不需要持久化保存
         save_config = [self.__pw, self.__login_status, self.__pwd_status, time_str]
         with open(self.__config_dir, 'w') as f:
             json.dump(save_config, f)
